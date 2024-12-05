@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEB-115 Final Project</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="projectJS.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Build Your Meal Plan</h1>
+    <p>Talya Roberts | WEB-115 | WEB.115.0002</p>
+  </header>
+
+  <form id="mealPlanForm">
+
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+    <div>
+      <label for="goal">Goal for the Week:</label>
+      <input type="text" id="goal" name="goal" placeholder="E.g., Lose weight, Maintain energy" required>
+    </div>
+
+
+    <h2>Weekly Meal Plan</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Breakfast</th>
+          <th>Snack 1</th>
+          <th>Lunch</th>
+          <th>Snack 2</th>
+          <th>Dinner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <script>
+          const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+          document.write(
+            days.map((day, index) => `
+              <tr>
+                <td>${day}</td>
+                <td><input type="text" id="breakfast-${index}" placeholder="Enter breakfast"></td>
+                <td><input type="text" id="snack1-${index}" placeholder="Enter snack"></td>
+                <td><input type="text" id="lunch-${index}" placeholder="Enter lunch"></td>
+                <td><input type="text" id="snack2-${index}" placeholder="Enter snack"></td>
+                <td><input type="text" id="dinner-${index}" placeholder="Enter dinner"></td>
+              </tr>
+            `).join('')
+          );
+        </script>
+      </tbody>
+    </table>
+
+
+    <div>
+      <button type="button" onclick="generateMealPlan()">Generate Meal Plan</button>
+      <button type="reset">Clear</button>
+      <button type="button" onclick="window.print()">Print</button>
+    </div>
+  </form>
+</body>
+</html>
